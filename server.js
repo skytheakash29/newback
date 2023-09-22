@@ -33,7 +33,7 @@ async function main(prompt,ratio) {
 app.post("/generate", async (req, res) => {
     let data = await main(req.body.prompt);
     console.log(data)
-  res.send({data})
+    res.send({data})
 });
 
 
@@ -60,7 +60,9 @@ app.post("/chat",async(req,res)=>{
       model: "gpt-3.5-turbo-16k-0613",
       messages: [{ role: "system", content: `${message}` }],
   })
-  res.json({message: response.choices[0].message.content})
+  res.json({message: response.choices[0].message.content});
+  console.log(message)
+
 
 }catch(e){
     res.send(e).status(400)
