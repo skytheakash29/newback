@@ -32,7 +32,7 @@ async function main(prompt,ratio) {
 
 app.post("/generate", async (req, res) => {
     let data = await main(req.body.prompt);
-
+    console.log(data)
   res.send({data})
 });
 
